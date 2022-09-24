@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/styles";
@@ -17,7 +17,10 @@ import AddPhotoIcon from "@material-ui/icons/AddPhotoAlternate";
 import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import CancelIcon from "@material-ui/icons/Cancel";
-//import AttachFileIcon from '@material-ui/icons/AttachFile';
+import {UserContext} from '../lib/UserContext';
+import faunadb, { query as q } from 'faunadb';
+
+const client = new faunadb.Client({ secret: "fnAExLQW6XAASzu2nmTsQpv0D8Bu5Mf1P5byfoSH", domain: 'db.us.fauna.com' })
 //import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 import ModalButton from "./newArticleModal";
@@ -76,13 +79,14 @@ const useStyles = makeStyles(theme => ({
 
 const AddArticle = props => {
   const { className } = props;
-
   const classes = useStyles();
   const fileInputRef = useRef(null);
   const [value, setValue] = useState("");
+  
   const [postImage, setPostImage] = useState(null);
   const [newArticle, setNewArticle] = useState({});
   const [chips, setChips] = useState(["Android", "IOS", "React"]);
+  const [user] = useContext(UserContext);
   const avatarUrl =
     "https://static01.nyt.com/images/2019/01/03/obituaries/03DRAGON1-print/03DRAGON1-thumbStandard.jpg";
 
@@ -95,6 +99,27 @@ const AddArticle = props => {
       "React"
     ]
   } */
+
+  const saveRizz = async (content, user) => {
+    try{    
+      const data = await client.query(
+          q.Create(
+              q.Collection('Post'),
+              {
+                  data: {
+                      owner: user,
+                      content: content,
+                  }
+              }
+          )
+      )
+
+      console.log(data);
+      if (data.name === 'BadRequest') return // if there's an error in the data creation
+  } catch {
+      res.status(500)
+  }
+  }
 
   const handleContentChange = event => {
     event.persist();
@@ -119,10 +144,10 @@ const AddArticle = props => {
     fileInputRef.current.click();
   };
 
-  const handleSubmit = event => {
-    //console.log("Article Posted");
+  const handleSubmit = async event => {
     event.preventDefault();
-    console.log(newArticle);
+    saveRizz(newArticle.body, user.id)
+    console.log(user, "user");
   };
 
   const removeImage = () => {

@@ -1,4 +1,4 @@
-import React, { useState, useRef, forwardRef } from "react";
+import React, { useState, useRef, forwardRef, useContext } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/styles";
@@ -24,6 +24,11 @@ import AddPhotoIcon from "@material-ui/icons/AddPhotoAlternate";
 import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import CancelIcon from "@material-ui/icons/Cancel";
+import {UserContext} from '../lib/UserContext';
+import faunadb, { query as q } from 'faunadb';
+
+const client = new faunadb.Client({ secret: "fnAExLQW6XAASzu2nmTsQpv0D8Bu5Mf1P5byfoSH", domain: 'db.us.fauna.com' })
+
 
 const useStyles = makeStyles(theme => ({
   root: {

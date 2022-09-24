@@ -1,43 +1,65 @@
-import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Image, Platform } from 'react-native';
-// import { Card } from "@paraboly/react-native-card";
+import React, { useState, useEffect, useContext } from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Platform } from 'react-native';
+import { UserContext } from "../../../apps/next/lib/UserContext";
+import { ActivityIndicator } from 'react-native-web-hooks'
+import faunadb, { query as q } from 'faunadb';
+
+const client = new faunadb.Client({ secret: "fnAExLQW6XAASzu2nmTsQpv0D8Bu5Mf1P5byfoSH", domain: 'db.us.fauna.com' })
 
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    content: 'First Item',
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    content: 'Second Item',
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    content: 'Third Item',
   },
 ];
 
-const Item = ({ title }) => (
+const Item = ({ content }) => (
   <View style={styles.item}>
-    {/* {Platform.OS === "web" ? <img class="logo w-10 h-10 rounded-full" src={"https://res.cloudinary.com/https-pilot-tune-herokuapp-com/image/upload/v1632165780/purple_egg_blank_nkyema.png"} />:
-        <Image source={"https://res.cloudinary.com/https-pilot-tune-herokuapp-com/image/upload/v1632165780/purple_egg_blank_nkyema.png"} />
-     } */}
-
+    <Text style={{color: "white", fontSize: 24}}>{content}</Text>
   </View>
 );
 
 const App = () => {
+  const [data, setData] = useState([]);
+  const [user] = useContext(UserContext);
+
+  useEffect(() => {
+    getUserRizz()
+  }, [])
+
+  const getUserRizz = async () => {
+    fetchPosts(user.id);
+  }
+
+  const fetchPosts = async (id) => {
+    let posts = await client.query(
+      q.Map(
+        q.Paginate(q.Match(q.Index('posts_owner_by_user'), id)),
+        q.Lambda("X", q.Get(q.Var("X")))
+      )
+    )
+    setData(posts.data)
+  }
+
   const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    <Item content={item.data.content} />
   );
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
+      {data ? <FlatList
+        data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-      />
+      /> : <ActivityIndicator size={"large"} color={"#fff"} />}
     </SafeAreaView>
   );
 }
@@ -52,7 +74,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
-  title: {
+  content: {
     fontSize: 32,
   },
 });

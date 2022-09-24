@@ -13,14 +13,38 @@ fixReanimatedIssue()
 
 import { Provider } from 'app/provider';
 import Head from 'next/head';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import type { SolitoAppProps } from 'solito';
 import Layout from '../components/layout';
 import { UserContext } from '../lib/UserContext';
+import { getCookie } from 'cookies-next';
+import Router from "next/router";
+import { magic } from '../lib/magic';
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
-  const [user, setUser] = useState({name: ""});
+  const [user, setUser] = useState(getCookie('account'));
+
+  useEffect(() => {
+    setUser({ loading: true });
+    parseUser().then((data) => {
+      if (data) {
+        setUser(data);
+      } else {
+        Router.push('/auth/login');
+        setUser({ user: null });
+      }
+    });
+  }, []);
+
+  const parseUser = async () => {
+    //console.log("Article Posted");
+    if(typeof user === "string"){
+      const unparsed = JSON.parse(user).account;
+    return unparsed;
+    }
+    // const res = await fetch("/create", {content: newArticle, id: user.id})
+  };
 
   return (
     <>

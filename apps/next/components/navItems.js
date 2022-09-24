@@ -1,6 +1,5 @@
 import React from "react";
 import Image from 'next/image';
-import GifLoader from 'react-gif-loader';
 
 const navItems = ({ Icon, title }) => {
 

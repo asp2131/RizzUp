@@ -12,7 +12,6 @@ const createMagic = (key) => {
   return (
     typeof window != 'undefined' &&
     new Magic(key, {
-      locale: "en_US",
       network: customNodeOptions,
       extensions: [new ConnectExtension()]
     })

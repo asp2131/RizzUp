@@ -1,0 +1,19 @@
+type User {
+  email: String! @unique
+  profile_pic: String! 
+  name: String! @unique
+  posts: [Post!] @relation
+  likes: [Like!] @relation
+}
+
+type Post {
+  content: String! @unique
+  owner: User!
+  likes: [Like!] @relation
+}
+
+type Like {
+  users: [User!] @relation
+  posts: [Post!] @relation
+}
+

@@ -38,13 +38,13 @@ const LikeButton = () => {
       <Animated.View style={[StyleSheet.absoluteFillObject, outlineStyle]}>
         <MaterialCommunityIcons
           name={"heart-outline"}
-          size={32}
-          color={"black"}
+          size={22}
+          color={"white"}
         />
       </Animated.View>
 
       <Animated.View style={fillStyle}>
-        <MaterialCommunityIcons name={"heart"} size={32} color={"red"} />
+        <MaterialCommunityIcons name={"heart"} size={22} color={"red"} />
       </Animated.View>
     </Pressable>
   );
@@ -58,6 +58,7 @@ export default function AnimatedStyleUpdateExample(props) {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        bottom: 1
       }}
     >
       <LikeButton />

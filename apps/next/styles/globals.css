@@ -3,9 +3,23 @@
 @tailwind utilities;
 @import "https://fonts.googleapis.com/css2?family=Gaegu&display=swap";
 
+@font-face {
+  font-family: "Gaegu-bold";
+  src: url("../public/Gaegu/Gaegu-Bold.ttf");
+}
+
 main {
   height: 100%;
   background-color: #5634CB;
+}
+
+.sticky{
+  position: sticky;
+  bottom: 1ch;
+}
+
+#Gaegu {
+  font-family: Gaegu!;
 }
 
 .css-view-175oi2r{

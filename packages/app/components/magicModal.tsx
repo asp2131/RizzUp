@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { Magic } from "magic-sdk";
-import { ConnectExtension } from "@magic-ext/connect";
+import { Hoverable } from 'react-native-web-hooks';
 import Web3 from "web3";
+import { Text, TouchableOpacity, View, StyleSheet, Pressable, Dimensions } from 'react-native';
 import {magic} from "../../../apps/next/lib/magic"
 
 const web3 = new Web3(magic.rpcProvider);
@@ -76,3 +77,23 @@ export default function App({login, account, setAccount}) {
     </div>
   );
 }
+
+const styles = StyleSheet.create({
+  text: {
+      fontWeight: "500",
+      fontSize: 18
+  },
+  buttonContainer: {
+      padding: 20
+  },
+  button: {
+      padding: 20,
+      backgroundColor: '#583edf',
+      justifyContent: 'center',
+      borderRadius: 50,
+      width: "30%",
+      alignItems: "center",
+      borderColor: "white",
+      borderWidth: 2
+  },
+})
