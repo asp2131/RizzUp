@@ -84,9 +84,9 @@ export function HomeScreen() {
         {/* <H1 sx={{ fontWeight: '800', color: "white" }}>RizzUp</H1> */}
       </MotiView>
       <View sx={{ maxWidth: 600 }}>
-        <P sx={{ textAlign: 'center', color: "white" }}>
+        {/* <P sx={{ textAlign: 'center', color: "white" }}>
           {text}
-        </P>
+        </P> */}
         {/* <View sx={{ textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: 'blue' }}> */}
         <MotiPressable
           style={{padding: 20}}
@@ -101,7 +101,8 @@ export function HomeScreen() {
             },
             []
           )}
-          onPress={randomRizz} containerStyle={{ justifyContent: 'center', alignItems: "center" }} >
+          // onPress={randomRizz} 
+          containerStyle={{ justifyContent: 'center', alignItems: "center" }} >
           <Text
             selectable={false}
             sx={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}

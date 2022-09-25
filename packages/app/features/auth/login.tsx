@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import { Text, TouchableOpacity, View, StyleSheet, Pressable, Dimensions } from 'react-native';
 import { Hoverable } from 'react-native-web-hooks';
-import { Row } from 'dripsy';
+import { Row, useSx } from 'dripsy';
 import { AntDesign } from "@expo/vector-icons";
 import MagicModal from '../../components/magicModal'
 import Web3 from "web3";
@@ -28,11 +28,12 @@ export default function App() {
     const [user, setUser] = useContext(UserContext);
 
     useEffect(() => {
+        console.log(user)
         if (magicAccount === null) {
             return;
         }
         const existingUser = loginUser(magicAccount)
-        if(existingUser){
+        if (existingUser) {
             return;
         }
         createUser(magicAccount);
@@ -71,59 +72,65 @@ export default function App() {
         const user = data.data
         user.id = data.ref.value.id // attaches the ref id as the user id in the client
         setUser(user);
-        setCookie("account", JSON.stringify({account: user}))
+        setCookie("account", JSON.stringify({ account: user }))
         return user
     }
 
-     const loginUser = async (email) => {
+    const loginUser = async (email) => {
         try {
-         let userData = await client.query(
-           q.Get(
-             q.Match(q.Index('unique_User_email'), email)
-           )
-         )
-         userData.data.id = userData.ref.value.id
-         setUser(userData.data)
-         setCookie("account", JSON.stringify({account: userData.data}))
-         Router.push("/")
-        return userData.data
+            let userData = await client.query(
+                q.Get(
+                    q.Match(q.Index('unique_User_email'), email)
+                )
+            )
+            userData.data.id = userData.ref.value.id
+            setUser(userData.data)
+            setCookie("account", JSON.stringify({ account: userData.data }))
+            Router.push("/")
+            return userData.data
         } catch (error) {
-          return
+            return
         }
-       }
-       
+    }
+
 
 
     return (
 
         // <Modal style={{backgroundColor: '#5634CB'}} isVisible={true}>
-          <View style={{ justifyContent: "center", alignItems: "center", paddingLeft: width > 1000 ? 150 : "none" }}>
-            <Hoverable>
-                {isHovered => (
-                    <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent', width: width > 500 ? "50%" : "70%" }]}>
-                        <Row sx={{ alignItems: "baseline" }}>
-                            <AntDesign name="mail" size={24} color={isHovered ? 'black' : 'lightgreen'} />
-                            <View style={{ paddingRight: 10 }} />
-                            <Text style={[styles.text, { color: isHovered ? 'black' : 'white' }]}>Login with Email</Text>
-                        </Row>
-                    </Pressable>
-                )}
-            </Hoverable>
-            <View style={styles.buttonContainer} />
-            <Hoverable>
-                {isHovered => (
-                    <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent', width: width > 500 ? "50%" : "70%" }]}>
-                        <Row sx={{ alignItems: "baseline" }}>
-                            <AntDesign name="google" size={24} color={isHovered ? 'black' : 'lightgreen'} />
-                            <View style={{ paddingRight: 10 }} />
-                            <Text style={[styles.text, { color: isHovered ? 'black' : 'white' }]}>Login with Google</Text>
-                        </Row>
-                    </Pressable>
-                )}
-            </Hoverable>
-            <MagicModal login={login} account={magicAccount} setAccount={setAccount} />
-        </View> 
-        
+        <View style={{ flex:  1, justifyContent: "center", alignItems: "center", paddingLeft: width > 1000 ? 150 : "none" }}>
+            {
+                user === undefined || user['user'] === null ?
+                    <>
+                        <Hoverable>
+                            {isHovered => (
+                                <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent', width: width > 500 ? "50%" : "70%" }]}>
+                                    <Row sx={{ alignItems: "baseline" }}>
+                                        <AntDesign name="mail" size={24} color={isHovered ? 'black' : 'lightgreen'} />
+                                        <View style={{ paddingRight: 10 }} />
+                                        <Text style={[styles.text, { color: isHovered ? 'black' : 'white' }]}>Login with Email</Text>
+                                    </Row>
+                                </Pressable>
+                            )}
+                        </Hoverable>
+                        <View style={styles.buttonContainer} />
+                        <Hoverable>
+                            {isHovered => (
+                                <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent', width: width > 500 ? "50%" : "70%" }]}>
+                                    <Row sx={{ alignItems: "baseline" }}>
+                                        <AntDesign name="google" size={24} color={isHovered ? 'black' : 'lightgreen'} />
+                                        <View style={{ paddingRight: 10 }} />
+                                        <Text style={[styles.text, { color: isHovered ? 'black' : 'white' }]}>Login with Google</Text>
+                                    </Row>
+                                </Pressable>
+                            )}
+                        </Hoverable>
+                    </>
+                    : null
+            }
+            <MagicModal user={user} login={login} account={magicAccount} setAccount={setAccount} />
+        </View>
+
         // </Modal>
 
     );

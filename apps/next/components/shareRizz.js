@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const AddArticle = props => {
-  const { className } = props;
+  const { className, isModalVisible, setModalVisible } = props;
   const classes = useStyles();
   const fileInputRef = useRef(null);
   const [value, setValue] = useState("");
@@ -148,6 +148,7 @@ const AddArticle = props => {
     event.preventDefault();
     saveRizz(newArticle.body, user.id)
     console.log(user, "user");
+    setModalVisible(false);
   };
 
   const removeImage = () => {

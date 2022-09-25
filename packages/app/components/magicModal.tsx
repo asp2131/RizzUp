@@ -1,15 +1,19 @@
 // @ts-nocheck
 
-import { useState } from "react";
+import { useContext } from "react";
 import { Magic } from "magic-sdk";
-import { Hoverable } from 'react-native-web-hooks';
+import { UserContext } from "../../../apps/next/lib/UserContext"
 import Web3 from "web3";
 import { Text, TouchableOpacity, View, StyleSheet, Pressable, Dimensions } from 'react-native';
 import {magic} from "../../../apps/next/lib/magic"
+import { deleteCookie } from 'cookies-next';
+import Router from 'next/router';
 
 const web3 = new Web3(magic.rpcProvider);
 
-export default function App({login, account, setAccount}) {
+export default function App({ account, setAccount}) {
+  const [user, setUser] = useContext(UserContext);
+
   const sendTransaction = async () => {
     const publicAddress = (await web3.eth.getAccounts())[0];
     const txnParams = {
@@ -46,10 +50,13 @@ export default function App({login, account, setAccount}) {
   };
 
   const disconnect = async () => {
+    console.log("disconnect")
     await magic.connect.disconnect().catch((e) => {
       console.log(e);
     });
     setAccount(null);
+    deleteCookie("account")
+    Router.reload()
   };
 
   return (
@@ -58,9 +65,9 @@ export default function App({login, account, setAccount}) {
         <></>
       )}
 
-      {account && (
+      {  user?.id  && (
         <>
-          <button onClick={showWallet} className="button-row">
+          {/* <button onClick={showWallet} className="button-row">
             Show Wallet
           </button>
           <button onClick={sendTransaction} className="button-row">
@@ -68,9 +75,9 @@ export default function App({login, account, setAccount}) {
           </button>
           <button onClick={signMessage} className="button-row">
             Sign Message
-          </button>
+          </button> */}
           <button onClick={disconnect} className="button-row">
-            Disconnect
+            Logout
           </button>
         </>
       )}

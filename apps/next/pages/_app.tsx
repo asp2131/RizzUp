@@ -26,7 +26,6 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
   const [user, setUser] = useState(getCookie('account'));
 
   useEffect(() => {
-    setUser({ loading: true });
     parseUser().then((data) => {
       if (data) {
         setUser(data);

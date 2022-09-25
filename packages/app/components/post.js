@@ -1,15 +1,18 @@
 import React, {useContext, useEffect} from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Linking } from 'react-native'
-import { useNavigation, useTheme, useRoute } from '@react-navigation/native'
-import {Row} from 'dripsy';
+import { StyleSheet, View, TouchableOpacity, Linking } from 'react-native'
+import { useNavigation, useTheme, useRoute } from '@react-navigation/native';
+import {Row, Text} from 'dripsy';
 import moment from 'moment'
 import { ArrowDown, ArrowUp, MessageSquare, Trash } from './icons/index'
 import { UserContext } from "../../../apps/next/lib/UserContext";
 import LikeButton from "./likeButton";
+import { Avatar } from "@material-ui/core";
 
 const Post = ({post}) => {
 
     const { colors } = useTheme()
+    const avatarUrl =
+    "https://static01.nyt.com/images/2019/01/03/obituaries/03DRAGON1-print/03DRAGON1-thumbStandard.jpg";
 
     // const  [user] = useContext(UserContext)
 
@@ -62,6 +65,10 @@ const Post = ({post}) => {
                         </TouchableOpacity>
                 </View>
             </View>
+            <Avatar
+                alt="Authenticated User"
+                src={avatarUrl}
+              />
             <Text
                 id="Gaegu"
                 style={[styles.title, { color: "white", }]}
@@ -143,28 +150,28 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 17,
-        fontFamily: 'OpenSans-Bold'
+        fontFamily: 'Gaegu'
     },
     score: {
         marginHorizontal: 5,
-        fontFamily: 'OpenSans-SemiBold'
+        fontFamily: 'Gaegu'
     },
     commentIcon: {
         marginBottom: -3
     },
     commentText: {
         marginLeft: 3,
-        fontFamily: 'OpenSans-SemiBold'
+        fontFamily: 'Gaegu'
     },
     regularFont: {
-        fontFamily: 'OpenSans-Regular',
+        fontFamily: 'Gaegu',
         fontSize: 17
     },
     italicFont: {
-        fontFamily: 'OpenSans-Italic'
+        fontFamily: 'Gaegu'
     },
     dateText: {
-        fontFamily: 'OpenSans-Regular',
+        fontFamily: 'Gaegu',
         fontSize: 12
     },
     link: {

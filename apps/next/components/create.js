@@ -11,7 +11,7 @@ export default function Create({isModalVisible, setModalVisible}){
     return  (
         <div style={{backgroundColor: "#f1c40f"}}>
         <Modal onBackdropPress={()=>setModalVisible(false)} style={{backgroundColor: 'transparent', padding: 10,}} isVisible={isModalVisible}>
-        <ShareRizz />
+        <ShareRizz isModalVisible={isModalVisible}  setModalVisible={setModalVisible}/>
         {/* <View>
           <Text style={{color: "white"}}>Hello!</Text>
           <TextInput placeholder="Type here..." style={{borderColor: "white", borderWidth: 10, backgroundColor: "white"}}></TextInput>
