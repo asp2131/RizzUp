@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
         setUser(data);
       } else {
         Router.push('/auth/login');
-        setUser({ user: null });
+        setUser(null);
       }
     });
   }, []);

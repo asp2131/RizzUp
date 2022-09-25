@@ -100,7 +100,7 @@ export default function App() {
         // <Modal style={{backgroundColor: '#5634CB'}} isVisible={true}>
         <View style={{ flex:  1, justifyContent: "center", alignItems: "center", paddingLeft: width > 1000 ? 150 : "none" }}>
             {
-                user === undefined || user['user'] === null ?
+                user === undefined || user === null ?
                     <>
                         <Hoverable>
                             {isHovered => (
