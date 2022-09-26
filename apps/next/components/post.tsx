@@ -13,7 +13,7 @@ interface IProps {
   isShowingOnHome?: boolean;
 }
 
-const VideoCard: NextPage<IProps> = ({ post:  any, isShowingOnHome }) => {
+const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }: any) => {
   const [playing, setPlaying] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(false);
@@ -41,11 +41,11 @@ const VideoCard: NextPage<IProps> = ({ post:  any, isShowingOnHome }) => {
     return (
       <div>
         {/* <Link href={`/detail/${post?.data.owner}`}> */}
-          <video
+          {/* <video
             loop
             src={post?.data.content}
             className='w-[250px] md:w-full rounded-xl cursor-pointer'
-          ></video>
+          ></video> */}
         {/* </Link> */}
             <div className='flex gap-2 -mt-8 items-center ml-4'>
               <p className='text-white text-lg font-medium flex gap-1 items-center'>
