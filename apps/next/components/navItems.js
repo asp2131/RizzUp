@@ -20,6 +20,7 @@ const navItems = ({ Icon, title }) => {
                 // overlayBackground="#5634CB"
             /> */}
         <Image alt=""  width={100} height={100}  src = "https://res.cloudinary.com/https-pilot-tune-herokuapp-com/image/upload/v1663870005/whitelogovid-unscreen_qkox7q.gif" />
+        <p className="icon-title">{"RizzUp"}</p>
           {/* <Image alt="logo" width={400} height={100} src={"https://res.cloudinary.com/https-pilot-tune-herokuapp-com/image/upload/v1663868386/text-1663868379367_qsdaq4.png"} /> */}
         </div>
       </>

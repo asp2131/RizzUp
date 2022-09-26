@@ -43,7 +43,7 @@ const Home = () => {
       }
 
     return (
-      <div style={{paddingTop: 100}} className='flex flex-col gap-10 videos h-full'>
+      <div style={{paddingTop: 120}} className='flex flex-col gap-10 videos h-full'>
         {data.length 
           ? data?.map((post, i) => (
             <Post post={post} isShowingOnHome key={`${i}`} />
