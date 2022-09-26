@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import AgoraUIKit from 'agora-react-uikit';
+import dynamic from 'next/dynamic'
+const AgoraUIKitDynamic = dynamic(() => import('agora-react-uikit'), {
+    ssr: false
+  });
 
 const App = () => {
     const [videoCall, setVideoCall] = useState(true);
@@ -12,9 +16,8 @@ const App = () => {
         EndCall: () => setVideoCall(false),
     };
     return videoCall ? (
-        <div style={{ flex: "none", display: 'flex', width: '50vw', height: '100vh', justifyContent: "center", alignContent: "center" }}>
-            <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
-
+        <div style={{ flex: "none", display: 'flex', width: '100vw', height: '100vh', justifyContent: "center", alignContent: "center" }}>
+            <AgoraUIKitDynamic rtcProps={rtcProps} callbacks={callbacks} />
         </div>
     ) : (
         <h3 onClick={() => setVideoCall(true)}>Start Call</h3>

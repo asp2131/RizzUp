@@ -22,11 +22,11 @@ const nav = () => {
           <NavItems title="SEARCH" Icon={SearchIcon} />
           <NavItems title="TRENDING" Icon={LightningBoltIcon} />
           <button onClick={() => Router.push("/chat/")}>
-            <NavItems title="V-Chat" Icon={VideoCameraIcon} />
+            <NavItems title="Video" Icon={VideoCameraIcon} />
           </button>
-          <button onClick={() => Router.push("/collections")}>
+          {/* <button onClick={() => Router.push("/collections")}>
             <NavItems title="COLLECTIONS" Icon={CollectionIcon} />
-          </button>
+          </button> */}
           <button onClick={() => Router.push("/auth/login")}>
             <NavItems title="ACCOUNT" Icon={UserIcon} />
           </button>

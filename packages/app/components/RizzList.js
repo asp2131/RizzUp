@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Platform } from 'react-native';
+import { SafeAreaView, View, ActivityIndicator, StyleSheet, Text, StatusBar, Platform } from 'react-native';
 import { UserContext } from "../../../apps/next/lib/UserContext";
-import { ActivityIndicator } from 'react-native-web-hooks'
 import faunadb, { query as q } from 'faunadb';
 import PostList from './postList';
 
