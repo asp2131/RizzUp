@@ -1,4 +1,5 @@
 // import { HomeScreen } from 'app/features/home/screen'
+// @ts-nocheck
 import React, { useState, useEffect, useContext } from 'react';
 import {Platform} from 'react-native';
 import { useSx } from 'dripsy';
