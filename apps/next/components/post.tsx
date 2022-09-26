@@ -40,13 +40,13 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
   if(!isShowingOnHome) {
     return (
       <div>
-        <Link href={`/detail/${post?.data.owner}`}>
+        {/* <Link href={`/detail/${post?.data.owner}`}> */}
           <video
             loop
             src={post?.data.content}
             className='w-[250px] md:w-full rounded-xl cursor-pointer'
           ></video>
-        </Link>
+        {/* </Link> */}
             <div className='flex gap-2 -mt-8 items-center ml-4'>
               <p className='text-white text-lg font-medium flex gap-1 items-center'>
                 <BsPlay className='text-2xl' />
@@ -54,11 +54,11 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
                 {0}
               </p>
             </div>
-        <Link href={`/detail/post._id`}>
+        {/* <Link href={`/detail/post._id`}> */}
           <p className='mt-5 text-md text-gray-800 cursor-pointer w-210'>
             {`post.caption`}
           </p>
-        </Link>
+        {/* </Link> */}
       </div>
     )
   }
@@ -68,7 +68,7 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
       <div>
         <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded '>
           <div className='md:w-16 md:h-16 w-10 h-10'>
-            <Link href={`/profile/${post?.data.owner}`}>
+            {/* <Link href={`/profile/${post?.data.owner}`}> */}
               <>
                 <Image
                   width={62}
@@ -79,10 +79,10 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
                   layout='responsive'
                 />
               </>
-            </Link>
+            {/* </Link> */}
           </div>
           <div>
-            <Link href={`/profile/${post?.data.owner}`}>
+            {/* <Link href={`/profile/${post?.data.owner}`}> */}
               <div className='flex items-center gap-2'>
                 <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
                   {post?.data.owner}{' '}
@@ -92,10 +92,10 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
                   {post?.data.owner}
                 </p>
               </div>
-            </Link>
-            <Link href={`/detail/post?.id`}>
+            {/* </Link> */}
+            {/* <Link href={`/detail/post?.id`}> */}
               <p className='mt-2 font-normal '>{post?.data?.content}</p>
-            </Link>
+            {/* </Link> */}
           </div>
         </div>
       </div>
