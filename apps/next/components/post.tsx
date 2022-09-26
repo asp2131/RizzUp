@@ -9,11 +9,11 @@ import { BsPlay } from 'react-icons/bs';
 
 
 interface IProps {
-  post?: object;
+  post?: any;
   isShowingOnHome?: boolean;
 }
 
-const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }: any) => {
+const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
   const [playing, setPlaying] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(false);
