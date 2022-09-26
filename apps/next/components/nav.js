@@ -3,12 +3,12 @@ import {
   HomeIcon,
   LightningBoltIcon,
   SearchIcon,
-  UserIcon
+  UserIcon,
+  VideoCameraIcon
 } from "@heroicons/react/outline";
 import NavItems from "./navItems";
 import React from "react";
 import Router from 'next/router';
-import Link from "next/link";
 
 const nav = () => {
   return (
@@ -21,6 +21,9 @@ const nav = () => {
           </button>
           <NavItems title="SEARCH" Icon={SearchIcon} />
           <NavItems title="TRENDING" Icon={LightningBoltIcon} />
+          <button onClick={() => Router.push("/chat/")}>
+            <NavItems title="V-Chat" Icon={VideoCameraIcon} />
+          </button>
           <button onClick={() => Router.push("/collections")}>
             <NavItems title="COLLECTIONS" Icon={CollectionIcon} />
           </button>

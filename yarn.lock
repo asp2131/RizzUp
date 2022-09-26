@@ -3543,6 +3543,55 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
+agora-react-native-rtm@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/agora-react-native-rtm/-/agora-react-native-rtm-1.5.0.tgz#fe650a9a61db0c94cb804180eb4c1020da092c10"
+  integrity sha512-8LApJVTK21a6/JkOPwzkatrFrcvD/t4WUJNdc55BybBadrlSSE1yzz/1Ts/8tHVdzsX9Pya9pjMZ+UQBGovong==
+
+agora-react-uikit@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/agora-react-uikit/-/agora-react-uikit-1.1.0.tgz#99e69e69186b3d1cc95b6fa790b8fdc7e48a05c3"
+  integrity sha512-6YeQEp6fT1cQCR+WpJOtkL6hlQgJcRc4VnBQEld1kFnj5DQOIq4DolXmYkXIvCv/yVbnPsMSZ5UYKu+o6SlacA==
+  dependencies:
+    agora-rtc-react "^1.1.0"
+    agora-rtm-react "^1.1.0"
+
+agora-rn-uikit@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/agora-rn-uikit/-/agora-rn-uikit-4.0.0.tgz#0cd7754f5bfd0ed37a28b65e080860001b619daf"
+  integrity sha512-Oo7Kt84eSez5nc2Rdb/ftmgkX6Cze2MVtkR+HdJD3ey8uepXDNr7Kk5JlWmvP0417YnV8Q/mF9Rt1YVe3fR8Yg==
+
+agora-rtc-react@^1.1.0:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/agora-rtc-react/-/agora-rtc-react-1.1.3.tgz#616527fe453b95fdd8f6e39ccba86496ecdbb686"
+  integrity sha512-AgmDoeLoL3xC7u60lTehHi1GvHsP8l09CX3bn+NyHx6E0Dmbbxdtqkn+YrlakWa4IYOAn0d/9oKvuGrNtUiOpA==
+  dependencies:
+    agora-rtc-sdk-ng "^4.3.0"
+
+agora-rtc-sdk-ng@^4.3.0:
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/agora-rtc-sdk-ng/-/agora-rtc-sdk-ng-4.14.0.tgz#fd832933786b8f249d619329bab3b10d8ae02a77"
+  integrity sha512-87WZEz+Lkhs39/K9iqBeQYUl6HIWoiyicez/DxspQ37N9NRWRRmoLVS1yUfG6FPWWxZiY+VEJbzPLPhuAihrpQ==
+  dependencies:
+    agora-rte-extension "^1.0.22"
+
+agora-rte-extension@^1.0.22:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/agora-rte-extension/-/agora-rte-extension-1.1.0.tgz#197db76d6231068a2929594c7eea1a96419ca2d6"
+  integrity sha512-HGsr7dJ5FHeCVHTLHCUfQ6cvKVLJz9b11F/FZbSQ/IqYlGZwRdu5E6hVdWenjWyYiqmpZm+nCP9IIqXSA+BPwA==
+
+agora-rtm-react@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/agora-rtm-react/-/agora-rtm-react-1.1.1.tgz#8dbdf915e35e007c4125b7b33902cf60fb85b039"
+  integrity sha512-+TS6tAD80xNSnaqwFuoDyU19LB1ulAs5+KoaYAMQmkNL5yKa/zqmp7IliQDbUx5SL6vzAuMJGE56cNlR4+wV9A==
+  dependencies:
+    agora-rtm-sdk "^1.5.0"
+
+agora-rtm-sdk@^1.5.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/agora-rtm-sdk/-/agora-rtm-sdk-1.6.0.tgz#99b0e85d93dfce5ff01c878ecfb97d122cfe70c9"
+  integrity sha512-A0KmHxIHwIb5r1cWEJXMQX8UkCb07Xs5JLX6Hy6PsRWcvxWu66GPqdTx0rP4TmoQ4pEN2LJYGatjxWD79ZZ6Pw==
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/ajv-errors/-/ajv-errors-1.0.1.tgz"
@@ -4498,6 +4547,14 @@ buffer@^5.0.5, buffer@^5.5.0, buffer@^5.6.0:
   dependencies:
     base64-js "^1.3.1"
     ieee754 "^1.1.13"
+
+buffer@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/buffer/-/buffer-6.0.3.tgz#2ace578459cc8fbe2a70aaa8f52ee63b6a74c6c6"
+  integrity sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==
+  dependencies:
+    base64-js "^1.3.1"
+    ieee754 "^1.2.1"
 
 bufferutil@^4.0.1:
   version "4.0.6"
@@ -8126,7 +8183,7 @@ idna-uts46-hx@^2.3.1:
   dependencies:
     punycode "2.1.0"
 
-ieee754@^1.1.13, ieee754@^1.1.4:
+ieee754@^1.1.13, ieee754@^1.1.4, ieee754@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
@@ -11913,6 +11970,13 @@ react-is@^16.13.0, react-is@^16.13.1, react-is@^16.7.0:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-native-agora@^4.0.0-rc.1:
+  version "4.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/react-native-agora/-/react-native-agora-4.0.0-rc.1.tgz#5762e840405266fd455bc941f36b9d82d62c0b46"
+  integrity sha512-7tMWIhvTjDj8pwRijFzdeiCE7+rB+BgiRMY7rENjGDqjc/siipn5CrrXxdFjv6R3iwb3jZPhn4/rx5SrNk9Lvw==
+  dependencies:
+    buffer "^6.0.3"
 
 react-native-animatable@1.3.3:
   version "1.3.3"

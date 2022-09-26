@@ -13,6 +13,10 @@ main {
   background-color: #5634CB;
 }
 
+._3Sxu7 {
+  flex: none !important;
+}
+
 .sticky{
   position: sticky;
   bottom: 1ch;
