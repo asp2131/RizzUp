@@ -37,7 +37,7 @@ const nextConfig = {
 }
 
 const transform = withPlugins([withTM, withFonts, withImages, withExpo, {images: {
-  domains: ['res.cloudinary.com'],
+  domains: ['res.cloudinary.com', 'static01.nyt.com'],
   formats: ['image/avif', 'image/webp'],
 }}])
 

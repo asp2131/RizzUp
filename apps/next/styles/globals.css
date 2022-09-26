@@ -10,10 +10,10 @@
 
 main {
   height: 100%;
-  background-color: #5634CB;
+  background-color: #fff;
 }
 
-._3Sxu7 {
+.css-view-175oi2r {
   /* flex: none !important; */
 }
 
@@ -31,14 +31,18 @@ main {
 }
 
 .nav-before-sign-in{
-  background-color: #5634CB;
+  width: 100vw;
+  background-color: #fff;
+  z-index: 91;
 }
 
 .nav {
-  background-color: #5634CB;
+  padding-top: 12px;
+  width: -webkit-fill-available;
+  position: fixed;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  margin: 20px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -91,6 +95,7 @@ main {
 }
 
 .icon-title {
+  color: black;
   opacity: 0;
   letter-spacing: 0.1em;
 }

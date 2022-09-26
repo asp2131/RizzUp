@@ -62,7 +62,8 @@ export default function App({ account, setAccount}) {
   return (
     <div className="app">
       {!account && (
-        <></>
+        <>
+        </>
       )}
 
       {  user?.id  && (
@@ -76,7 +77,7 @@ export default function App({ account, setAccount}) {
           <button onClick={signMessage} className="button-row">
             Sign Message
           </button> */}
-          <button onClick={disconnect} className="button-row">
+          <button onClick={disconnect} >
             Logout
           </button>
         </>

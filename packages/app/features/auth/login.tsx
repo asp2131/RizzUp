@@ -98,17 +98,17 @@ export default function App() {
     return (
 
         // <Modal style={{backgroundColor: '#5634CB'}} isVisible={true}>
-        <View style={{ flex:  1, justifyContent: "center", alignItems: "center", paddingLeft: width > 1000 ? 150 : "none" }}>
+        <View style={{ height: "100vh", flex:  1, justifyContent: "center", alignItems: "center", paddingLeft: width > 1000 ? 150 : "none" }}>
             {
-                user === undefined || user === null ?
+                user !== undefined || user !== null ?
                     <>
                         <Hoverable>
                             {isHovered => (
-                                <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent', width: width > 500 ? "50%" : "70%" }]}>
+                                <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'transparent' : 'rgb(237, 175, 70)', width: width > 500 ? "50%" : "70%" }]}>
                                     <Row sx={{ alignItems: "baseline" }}>
                                         <AntDesign name="mail" size={24} color={isHovered ? 'black' : 'lightgreen'} />
                                         <View style={{ paddingRight: 10 }} />
-                                        <Text style={[styles.text, { color: isHovered ? 'black' : 'white' }]}>Login with Email</Text>
+                                        <Text style={[styles.text, { color: isHovered ? 'black' : 'black' }]}>Login with Email</Text>
                                     </Row>
                                 </Pressable>
                             )}
@@ -116,11 +116,11 @@ export default function App() {
                         <View style={styles.buttonContainer} />
                         <Hoverable>
                             {isHovered => (
-                                <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent', width: width > 500 ? "50%" : "70%" }]}>
+                                <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'transparent' : 'rgb(237, 175, 70)', width: width > 500 ? "50%" : "70%" }]}>
                                     <Row sx={{ alignItems: "baseline" }}>
                                         <AntDesign name="google" size={24} color={isHovered ? 'black' : 'lightgreen'} />
                                         <View style={{ paddingRight: 10 }} />
-                                        <Text style={[styles.text, { color: isHovered ? 'black' : 'white' }]}>Login with Google</Text>
+                                        <Text style={[styles.text, { color: isHovered ? 'black' : 'black' }]}>Login with Google</Text>
                                     </Row>
                                 </Pressable>
                             )}

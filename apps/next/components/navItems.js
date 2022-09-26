@@ -6,7 +6,7 @@ const navItems = ({ Icon, title }) => {
     return Icon ? (
       <>
         <div className="icon-container group">
-          <Icon className="icon" />
+          <Icon color={"black"} className="icon" />
           <p className="icon-title">{title}</p>
         </div>
       </>
