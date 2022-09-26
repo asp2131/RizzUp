@@ -13,7 +13,7 @@ interface IProps {
   isShowingOnHome?: boolean;
 }
 
-const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
+const VideoCard: NextPage<IProps> = ({ post:  any, isShowingOnHome }) => {
   const [playing, setPlaying] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(false);
