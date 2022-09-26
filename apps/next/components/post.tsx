@@ -40,7 +40,7 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
   if(!isShowingOnHome) {
     return (
       <div>
-        <Link href={`/detail/${post.data.owner}`}>
+        <Link href={`/detail/${post?.data.owner}`}>
           <video
             loop
             src={post?.data.content}
@@ -68,7 +68,7 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
       <div>
         <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded '>
           <div className='md:w-16 md:h-16 w-10 h-10'>
-            <Link href={`/profile/${post.data.owner}`}>
+            <Link href={`/profile/${post?.data.owner}`}>
               <>
                 <Image
                   width={62}
@@ -82,14 +82,14 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
             </Link>
           </div>
           <div>
-            <Link href={`/profile/${post.data.owner}`}>
+            <Link href={`/profile/${post?.data.owner}`}>
               <div className='flex items-center gap-2'>
                 <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
-                  {post.data.owner}{' '}
+                  {post?.data.owner}{' '}
                   <GoVerified className='text-blue-400 text-md' />
                 </p>
                 <p className='capitalize font-medium text-xs text-gray-500 hidden md:block'>
-                  {post.data.owner}
+                  {post?.data.owner}
                 </p>
               </div>
             </Link>
