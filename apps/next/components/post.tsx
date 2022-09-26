@@ -40,7 +40,7 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
   if(!isShowingOnHome) {
     return (
       <div>
-        <Link href={`/detail/${post._id}`}>
+        <Link href={`/detail/${post?._id}`}>
           <video
             loop
             src={post?.data.content}
@@ -50,12 +50,12 @@ const VideoCard: NextPage<IProps> = ({ post, isShowingOnHome }) => {
             <div className='flex gap-2 -mt-8 items-center ml-4'>
               <p className='text-white text-lg font-medium flex gap-1 items-center'>
                 <BsPlay className='text-2xl' />
-                {post.likes?.length || 0}
+                {post?.likes?.length || 0}
               </p>
             </div>
-        <Link href={`/detail/${post._id}`}>
+        <Link href={`/detail/${post?._id}`}>
           <p className='mt-5 text-md text-gray-800 cursor-pointer w-210'>
-            {post.caption}
+            {post?.caption}
           </p>
         </Link>
       </div>
