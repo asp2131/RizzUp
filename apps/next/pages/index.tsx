@@ -15,7 +15,6 @@ const Home = () => {
     const [text, setText] = useState("")
     const [isClick, setClick] = useState(false);
     const [data, setData] = useState([]);
-    const [user] = useContext(UserContext);
 
     useEffect(() => {
         fetchPosts();
