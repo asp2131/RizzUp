@@ -20,12 +20,12 @@ const Layout = (props) => {
     <Header />
     <main>
       <div className='container'>{props.children}</div>
-      <div className='sticky'>
+      {/* <div className='sticky'>
       <FloatingAction
           overlayColor={"transparent"}
           onPressMain={() => setModalVisible(true)}
         />
-      </div>  
+      </div>   */}
     <ShareRizz isModalVisible={isModalVisible} setModalVisible={setModalVisible} />
     </main>
    

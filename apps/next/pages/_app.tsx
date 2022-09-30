@@ -13,14 +13,18 @@ fixReanimatedIssue()
 
 import { Provider } from 'app/provider';
 import Head from 'next/head';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import type { SolitoAppProps } from 'solito';
 import Layout from '../components/layout';
 import { UserContext } from '../lib/UserContext';
 import { getCookie } from 'cookies-next';
 import Router from "next/router";
+import { AppProvider } from '../contexts/AppContext';
+import { MeetProvider } from '../contexts/MeetContext';
+import { ThemeProvider } from 'styled-components';
 import { magic } from '../lib/magic';
 import "../styles/globals.css";
+import {theme} from "../styles/theme"
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
   const [user, setUser] = useState(getCookie('account'));
@@ -38,9 +42,9 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
 
   const parseUser = async () => {
     //console.log("Article Posted");
-    if(typeof user === "string"){
+    if (typeof user === "string") {
       const unparsed = JSON.parse(user).account;
-    return unparsed;
+      return unparsed;
     }
     // const res = await fetch("/create", {content: newArticle, id: user.id})
   };
@@ -56,11 +60,17 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Provider>
-      <UserContext.Provider value={[user, setUser]}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-        </UserContext.Provider>
+        <AppProvider>
+          <MeetProvider>
+            <ThemeProvider theme={theme}>
+              <UserContext.Provider value={[user, setUser]}>
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </UserContext.Provider>
+            </ThemeProvider>
+          </MeetProvider>
+        </AppProvider>
       </Provider>
     </>
   )
