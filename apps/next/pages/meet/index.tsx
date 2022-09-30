@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { BiUserCircle, BiMenu, BiVideo, BiVideoOff, BiMicrophone, BiMicrophoneOff, BiDesktop, BiPhoneOff, BiChat, BiEdit, BiUserX, BiEnvelope, BiCopy, BiExpand } from 'react-icons/bi';
 import { MutatingDots } from 'react-loader-spinner';
@@ -18,7 +19,7 @@ import { useWindowBreakpoints } from '../../hooks';
 
 import { theme } from '../../styles/theme';
 import * as emptyAnimation from '../../public/assets/animations/empty.json';
-import * as S from './styles';
+import * as S from '../../styles/meet_styles';
 
 const ANIMATION_DIMENSIONS = {
 	'xsm': { width: 275, height: 115 },

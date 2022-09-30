@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ToastOptions } from 'react-toastify';
 import { theme } from '../styles/theme';
 

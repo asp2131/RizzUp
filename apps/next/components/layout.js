@@ -1,11 +1,8 @@
 import Head from 'next/head';
 import Header from './nav'
-import ShareRizz from './create';
 import React, {useState} from 'react';
-import { FloatingAction } from "react-native-floating-action";
 
 const Layout = (props) => {
-  const [isModalVisible, setModalVisible] = useState(false);
 
   return(
   <>
@@ -20,13 +17,6 @@ const Layout = (props) => {
     <Header />
     <main>
       <div className='container'>{props.children}</div>
-      {/* <div className='sticky'>
-      <FloatingAction
-          overlayColor={"transparent"}
-          onPressMain={() => setModalVisible(true)}
-        />
-      </div>   */}
-    <ShareRizz isModalVisible={isModalVisible} setModalVisible={setModalVisible} />
     </main>
    
   </>

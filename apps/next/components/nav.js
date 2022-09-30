@@ -21,7 +21,7 @@ const nav = () => {
           </button>
           <NavItems title="SEARCH" Icon={SearchIcon} />
           <NavItems title="TRENDING" Icon={LightningBoltIcon} />
-          <button onClick={() => Router.push("/chat/")}>
+          <button onClick={() => Router.push("/video/")}>
             <NavItems title="Video" Icon={VideoCameraIcon} />
           </button>
           {/* <button onClick={() => Router.push("/collections")}>

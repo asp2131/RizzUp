@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { BiCompass, BiUser, BiEnvelope, BiAt } from 'react-icons/bi';
 import { Oval } from 'react-loader-spinner';
@@ -13,10 +14,10 @@ import { Input, Button, JoinMeetModal, LanguageSwitch } from '../../components';
 import useMeetContext from '../../contexts/MeetContext';
 
 import { TOAST_DEFAULT_CONFIG } from '../../utils/constants';
-import { formValidations } from './formValidations';
+import { formValidations } from '../../lib/formValidations';
 
 import { theme } from '../../styles/theme';
-import * as S from './styles';
+import * as S from '../../styles/home_style';
 
 type TFormValues = {
 	userName: string;

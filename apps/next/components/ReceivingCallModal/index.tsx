@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { BiX } from 'react-icons/bi';
 import { useTranslation } from 'react-i18next';
