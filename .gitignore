@@ -72,3 +72,6 @@ web-build/
 .turbo
 build/**
 .vercel
+
+# Local Netlify folder
+.netlify
