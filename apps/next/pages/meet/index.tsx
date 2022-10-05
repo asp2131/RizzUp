@@ -71,7 +71,7 @@ const Meet: NextPage = () => {
 	const handleCopyMeetId = async () => {
 		try {
 			setIsMenuOpen(false);
-			await navigator.clipboard.writeText(`${window.origin}/home?meetId=${userData.id}`);
+			await navigator.clipboard.writeText(`${window.origin}/video?meetId=${userData.id}`);
 			toast(t('toastMessage.copiedMeetLink'), TOAST_DEFAULT_CONFIG);
 		} catch (error) {
 			toast(t('toastMessage.errorWhileCopyingMeetLink'), TOAST_DEFAULT_CONFIG);
@@ -89,7 +89,7 @@ const Meet: NextPage = () => {
 	}
 
 	useEffect(() => {
-		if (isEmpty(userData)) router.replace('/home?stopStream=true');
+		if (isEmpty(userData)) router.replace('/video?stopStream=true');
 		getUserStream();
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps

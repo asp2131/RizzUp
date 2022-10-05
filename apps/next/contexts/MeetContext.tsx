@@ -265,7 +265,7 @@ export const MeetProvider: React.FC<{ testData?: any, children: any }> = ({ test
 		clearUserData();
 		clearMeetData();
 
-		router.replace('/home?stopStream=true');
+		router.replace('/video?stopStream=true');
 	}
 
 	const updateStreamAudio = async () => {
@@ -336,7 +336,7 @@ export const MeetProvider: React.FC<{ testData?: any, children: any }> = ({ test
 					const tracks = userStream?.getTracks();
 					tracks?.forEach(track => track.stop());
 
-					router.replace('/home?stopStream=true');
+					router.replace('/video?stopStream=true');
 					toast(t('toastMessage.linkNotAvailable'), TOAST_DEFAULT_CONFIG);
 				});
 
@@ -356,7 +356,7 @@ export const MeetProvider: React.FC<{ testData?: any, children: any }> = ({ test
 
 					peerRef.current.destroy();
 					
-					router.replace('/home?stopStream=true');
+					router.replace('/video?stopStream=true');
 					toast(t('toastMessage.userRemovedFromMeet'), TOAST_DEFAULT_CONFIG);
 				});
 
