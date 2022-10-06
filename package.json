@@ -15,7 +15,7 @@
   "scripts": {
     "native": "cd apps/expo && expo start",
     "web": "cd apps/next && yarn next",
-    "web:prod": "cd apps/next && yarn build; yarn start"
+    "start": "cd apps/next && yarn build; yarn start"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
